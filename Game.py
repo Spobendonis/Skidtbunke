@@ -1,5 +1,6 @@
 import random
 from Player import Controller
+from Board import Board
 
 class Game():
 	def __init__(self, row_count: int, deck_count: int, max_card: int, players: list[Controller]):
@@ -12,7 +13,7 @@ class Game():
 		random.shuffle(self.reserve)
 
 		for player in players:
-			player.init(row_count, deck_count, max_card)
+			player.init(Board(row_count, deck_count, max_card))
 	
 	def play(self):
 		while(len(self.reserve) > 0):
